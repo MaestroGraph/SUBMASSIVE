@@ -1,3 +1,5 @@
+## Please refer to the details at www.submassive.cc
+
 # Data preprocessing:
 generate_cycles.py : generate the subgraph of the entire LOD-a-lot. This step is for the sake of memory efficiency.
 two-cycles.py : this is a Python script that allows a user to make decisions about some size-two cycles (between class A and B). The input is encoded as follows:
