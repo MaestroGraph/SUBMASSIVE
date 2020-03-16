@@ -1,0 +1,15 @@
+# the results of mannual decisons
+count total pairs =  229
+count removed =  68
+Counter({'dbpedia': 40, 'carleton': 38, 'w3': 21, 'example': 6, 'creationwiki': 4, 'hp': 4, 'mygrid': 4, 'owl-ontologies': 4, 'dickinson-i-4': 2, 'htt': 2, 'cox': 2, 'micra': 2, 'co-ode': 2, 'abdn': 2, 'daml': 2})
+count left =  14
+Counter({'dbpedia': 8, 'opencyc': 4, 'micra': 2, 'mkrmke': 2, 'wikia': 2, 'umbel': 2, 'cyc': 2, 'geneontology': 2, 'mindswap': 2, 'ccu': 2})
+count right =  9
+Counter({'dbpedia': 10, 'creationwiki': 4, 'opencyc': 2, 'umbel': 2})
+===both====
+Counter({'dbpedia': 18, 'opencyc': 6, 'creationwiki': 4, 'umbel': 4, 'micra': 2, 'mkrmke': 2, 'wikia': 2, 'cyc': 2, 'geneontology': 2, 'mindswap': 2, 'ccu': 2})
+===both====
+count equivalent class =  26
+Counter({'w3': 15, 'dbpedia': 10, 'micra': 6, 'opencyc': 6, 'uni-karlsruhe': 4, 'daml': 3, 'adobe': 2, 'cim3': 2, 'nasa': 2, 'umbel': 2, 'ihmc': 1})
+count undecided/unknown 112
+Counter({'opencyc': 168, 'dbpedia': 20, 'purl': 12, 'stanford': 8, 'creationwiki': 6, 'ag-nbi': 4, 'umbel': 2, 'cyc': 2, 'geneontology': 2})
