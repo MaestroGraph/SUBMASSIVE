@@ -328,22 +328,7 @@ def main ():
     print ('count (not existing) = ', count)
 
     coll_nodes = sm.load_manually_decided_relations()
-    # count = 0
-    # count_remove_sug = 0
-    # for (s_id, o_id, sug) in sm.suggestion_on_relations:
-    #
-    #     if sug == 'remove':
-    #         if sm.graph.has_edge(s_id, o_id):
-    #             sm.graph.remove_edge(s_id, o_id)
-    #             count_remove_sug += 1
-    #         else:
-    #             count += 1
-    #             # print ('removing not existing relation: ',s_id, o_id)
-    # print ('count (remove edges from  suggestion) = ', count_remove_sug)
-    # print ('count (not existing) = ', count)
 
-
-    #
     # # 5) == remove start =
     # find all the nodes
     max = int(sys.argv[1])
@@ -467,8 +452,6 @@ def main ():
             s_term = sm.convert_to_term(s_id)
             o_term = sm.convert_to_term(o_id)
             writer.writerow([s_id, s_term, o_id, o_term, 'remove', 'a'])  # removed from automatic method
-
-
 
 
 if __name__ == "__main__":
