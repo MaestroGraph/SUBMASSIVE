@@ -2,10 +2,25 @@
 
 # Demo:
 
+The command would retrieve the immediate superclass(es) of the entity.
+
+python demo.py --input [query entity]
+
+For example:
+
 ```
-python demo.py --input http://http-server.carleton.ca/~rgarigue/ontologies/www.kayvium.com/Regional_registry#Staff --all --plot
+python demo.py --input http://http-server.carleton.ca/~rgarigue/ontologies/www.kayvium.com/Regional_registry#Staff
+```
+If a user would rather retrieve the transitive closure, simply add
+```
+--all
 ```
 
+To plot the graph subclass relations, simply add
+```
+--plot
+```
+## Details of the algorithms can been found in the paper at www.submassive.cc
 # Data preprocessing:
 generate_cycles.py : generate the subgraph of the entire LOD-a-lot. This step is for the sake of memory efficiency.
 two-cycles.py : this is a Python script that allows a user to make decisions about some size-two cycles (between class A and B). The input is encoded as follows:
