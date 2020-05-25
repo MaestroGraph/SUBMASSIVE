@@ -1,4 +1,4 @@
-## Please refer to the details at www.submassive.cc
+## Please refer to www.submassive.cc for more details.
 
 # Demo:
 
@@ -21,7 +21,9 @@ To plot the graph subclass relations, simply add
 --plot
 ```
 
-To switch between different knowledge graphs, please go to line 14 and change the path to different resources. 
+To switch between different knowledge graphs, please go to line 14 of demo.py and change the path to different resources.
+The default output format is turtle.
+
 ## Details of the algorithms can been found in the paper at www.submassive.cc
 # Data preprocessing:
 generate_cycles.py : generate the subgraph of the entire LOD-a-lot. This step is for the sake of memory efficiency.
@@ -56,3 +58,8 @@ For relations of rdfs:subPropertyOf, the reflexive edges were removed first and 
 Simply run the code by triggering the execution run.sh
 
 And finally, the equiClass.py file is simply a file to interact with the sameas data.
+
+
+## Package Dependency:
+Please make sure you have
+rdflib, z3, networkx, tldextract, pyHDT installed. 

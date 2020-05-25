@@ -1,6 +1,6 @@
 # Shuai Wang
 # VU Amsterdam
-# DEMO for SUBMASSIVE 
+# DEMO for SUBMASSIVE
 from hdt import HDTDocument, IdentifierPosition
 import sys
 import networkx as nx
@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import argparse
 import scipy
 import tldextract
+import rdflib
 
 subClassOf = "http://www.w3.org/2000/01/rdf-schema#subClassOf"
 
@@ -30,14 +31,14 @@ def get_domain_and_label(t):
 def find_all_superclass():
     query_entity = query
     last_size = len(graph.edges)
-    print ('entity = ', query_entity)
+    # print ('entity = ', query_entity)
     # print ('cardi = ', cardinality)
     graph.add_node(query_entity)
     nodes = list(graph.nodes).copy()
     for n in nodes:
         triples, cardinality = hdt_file.search_triples(n, subClassOf, '')
         for (s, p, o) in triples:
-            print ('subClassOf: ', o, '\n')
+            # print ('subClassOf: ', o, '\n')
             graph.add_edge(s, o)
             # O.append(o)
         #do-while loop:
@@ -47,7 +48,7 @@ def find_all_superclass():
         for n in nodes:
             triples, cardinality = hdt_file.search_triples(n, subClassOf, '')
             for (s, p, o) in triples:
-                print ('subClassOf: ', o, '\n')
+                # print ('subClassOf: ', o, '\n')
                 graph.add_edge(s, o)
 
 
@@ -59,7 +60,7 @@ def find_immediate_superclass():
     O = []
     graph.add_node(query_entity)
     for (s, p, o) in triples:
-        print ('subClassOf: ', o, '\n')
+        print ('\tsubClassOf: ', o, '\n')
         graph.add_edge(query_entity, o)
         O.append(o)
 
@@ -96,6 +97,22 @@ def plot_graph(file_name='output'):
     plt.savefig(file_name + '.svg')
     plt.close()
 
+def export():
+    # create a Graph
+    g = rdflib.Graph()
+
+    for (s, o) in graph.edges:
+        g.add((rdflib.URIRef(s), rdflib.URIRef(subClassOf), rdflib.URIRef(o)))
+
+    # print the number of "triples" in the Graph
+    # print("graph has {} statements.".format(len(g)))
+    # print ('should be', len(graph.edges))
+
+    # print out the entire Graph in the RDF Turtle format
+    # print()
+    file = open("output.ttl", mode="w")
+    file.write(g.serialize(format="turtle").decode("utf-8"))
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Process some integers.')
@@ -116,3 +133,5 @@ if __name__ == "__main__":
     if args.plot == True:
         print ('also output the plot')
         plot_graph()
+    # Finally export the graph
+    export()
