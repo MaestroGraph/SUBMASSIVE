@@ -20,6 +20,8 @@ To plot the graph subclass relations, simply add
 ```
 --plot
 ```
+
+To switch between different knowledge graphs, please go to line 14 and change the path to different resources. 
 ## Details of the algorithms can been found in the paper at www.submassive.cc
 # Data preprocessing:
 generate_cycles.py : generate the subgraph of the entire LOD-a-lot. This step is for the sake of memory efficiency.
